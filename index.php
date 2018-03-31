@@ -1,16 +1,19 @@
 <?php
 $validate_key = '123456789';
+$RrtObj = new stdClass();
 if(isset($_REQUEST['key']) && $_REQUEST['key'] != ''){
 	if($validate_key == $_REQUEST['key']){
-		$RrtObj->validation = 'true';
+		$RrtObj->success = 'Allow';
 	}
 	else{
-		$RrtObj->validation = 'false';
+		$RrtObj->success = 'Disallow';
 	}
 }
 else{
-	$RrtObj->validation = 'false';
+	$RrtObj->success = 'Disallow';
 }
 
 $reJSON = json_encode($RrtObj);
+
+echo $reJSON;
 ?>
